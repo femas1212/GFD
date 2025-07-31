@@ -20,6 +20,17 @@ function showPage(pageId) {
     }
 }
 
+function startLoveJourney() {
+    // Pindah ke halaman about
+    showPage('about');
+
+    // Putar musik
+    const audio = document.getElementById('loveSong');
+    audio.play().catch(error => {
+        console.log("Autoplay diblokir, klik lagi untuk memutar musik.", error);
+    });
+}
+
 // Hearts animation - reduce frequency on mobile for better performance
 function createHeart() {
     const heart = document.createElement('div');
