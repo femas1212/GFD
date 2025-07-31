@@ -1,0 +1,650 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ff6b9d, #c44569, #f8b500, #ff9ff3);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 15px 30px;
+    z-index: 1000;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 110px;
+    justify-content: center;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+}
+
+/* Page Container */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 100px 20px 50px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 40px;
+    margin: 20px 0;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Home Page */
+.main-title {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #fff, #ffb3d9, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
+    to { filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.6)); }
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #ff6b9d, #c44569);
+    border: none;
+    color: white;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(196, 69, 105, 0.3);
+    font-weight: bold;
+    margin: 10px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(196, 69, 105, 0.4);
+}
+
+/* About Page */
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 4px solid #ff6b9d;
+    position: relative;
+}
+
+.timeline-date {
+    color:  rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* Memory Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.memory-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.memory-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff9ff3, #ff6b9d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.memory-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.memory-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Messages Page */
+.love-messages {
+    display: grid;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.message-card::before {
+    content: '"';
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.message-text {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    font-style: italic;
+    margin-left: 30px;
+}
+
+.memory-image-container {
+    position: relative;
+    width: 100%;
+    height: 180px; /* Tinggi yang lebih konsisten */
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff9ff3; /* Warna latar fallback */
+}
+
+.memory-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    object-position: center;
+    transition: transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.205); /* Latar belakang untuk gambar transparan */
+    padding: 5px; /* Jarak antara gambar dan border */
+}
+
+.memory-card:hover .memory-image {
+    transform: scale(1.05);
+}
+
+.memory-image-container:has(.memory-image[src*="placeholder.jpg"]) .memory-placeholder {
+    display: flex;
+}
+
+.memory-image-container:has(.memory-image:not([src*="placeholder.jpg"])) .memory-placeholder {
+    display: none;
+}
+
+.alert-image-container {
+    height: 250px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.alert-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Interactive Elements */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(360deg);
+    }
+}
+
+.sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: sparkle 3s linear infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.text-content {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        padding: 12px 20px;
+        gap: 15px;
+        flex-wrap: nowrap;
+        justify-content: center;
+        max-width: calc(100vw - 20px);
+        overflow-x: auto;
+    }
+    
+    .nav-btn {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        border-radius: 20px;
+        white-space: nowrap;
+        min-width: 90px;
+        flex-shrink: 0;
+    }
+    
+    /* Page content */
+    .page {
+        padding: 80px 15px 30px;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    
+    .card {
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 20px;
+    }
+    
+    /* Typography */
+    .main-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+    
+    .text-content {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Buttons */
+    .cta-button {
+        padding: 15px 25px;
+        font-size: 1rem;
+        margin: 8px 5px;
+        border-radius: 25px;
+        display: block;
+        width: calc(100% - 10px);
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Timeline */
+    .timeline {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
+    .timeline-item {
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 15px;
+        border-left-width: 3px;
+    }
+    
+    .timeline-date {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .timeline-content {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Gallery */
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .memory-card {
+        padding: 15px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .memory-placeholder {
+        height: 180px;
+        font-size: 2.5rem;
+    }
+    
+    .memory-title {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .memory-desc {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .memory-image {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    .memory-image-container {
+        height: 180px; /* Tinggi yang lebih sesuai untuk mobile */
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    
+    /* Messages */
+    .love-messages {
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .message-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .message-card::before {
+        font-size: 3rem;
+        top: 5px;
+        left: 15px;
+    }
+    
+    .message-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-left: 25px;
+    }
+    
+    /* Hearts animation - reduce on mobile for performance */
+    .heart {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screens */
+    .navbar {
+        gap: 8px;
+        padding: 10px 15px;
+    }
+    
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        min-width: 80px;
+        gap: 4px;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    .page-title {
+        font-size: 1.6rem;
+    }
+    
+    .card {
+        padding: 15px;
+        margin: 10px 0;
+    }
+    
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .timeline-item {
+        padding: 15px;
+    }
+    
+    .memory-placeholder {
+        height: 150px;
+        font-size: 2rem;
+    }
+
+    .memory-image-container {
+        height: 150px;
+    }
+    
+    .message-card {
+        padding: 15px;
+    }
+    
+    .message-card::before {
+        font-size: 2.5rem;
+        left: 10px;
+    }
+    
+    .message-text {
+        font-size: 0.9rem;
+        margin-left: 20px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .nav-btn, .cta-button, .memory-card {
+        min-height: 44px; /* Apple's recommended touch target size */
+    }
+    
+    .memory-card:hover {
+        transform: none; /* Disable hover effects on touch devices */
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-btn:hover, .cta-button:hover {
+        transform: none;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 896px) and (orientation: landscape) {
+    .page {
+        padding: 60px 15px 20px;
+    }
+    
+    .navbar {
+        top: 5px;
+        padding: 8px 15px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+}

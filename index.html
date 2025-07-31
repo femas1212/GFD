@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend Day</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <button class="nav-btn active" data-page="home">
+            <span>🏠</span>
+            <span>Home</span>
+        </button>
+        <button class="nav-btn" data-page="about">
+            <span>💕</span>
+            <span>Cerita</span>
+        </button>
+        <button class="nav-btn" data-page="memories">
+            <span>📸</span>
+            <span>Kenangan</span>
+        </button>
+        <button class="nav-btn" data-page="messages">
+            <span>💌</span>
+            <span>Pesan</span>
+        </button>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <div class="container">
+            <div class="card">
+                <div class="sparkles" id="sparkles-home"></div>
+                <h1 class="main-title">Happy Girlfriend Day</h1>
+                <p class="subtitle">
+                    Untuk Ayu Mentari Sasmita yang telah membuat setiap hari terasa istimewa ✨<br>
+                    Selamat datang di website khusus untukmu, sayangku!
+                </p>
+                <button class="cta-button" onclick="showPage('about')">
+                    Mulai Perjalanan Cinta kita 💕
+                </button>
+                <button class="cta-button" onclick="showRandomMessage()">
+                    Ada Pesan Untuk Kamu ❤️
+                </button>
+                <div style="margin-top: 30px; color: rgba(255,255,255,0.7);">
+                    <p>Girlfriend Day • 1 Agustus 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About/Story Page -->
+    <div class="page" id="about">
+        <div class="container">
+            <h2 class="page-title">Cerita Kita 💕</h2>
+            <div class="card">
+                <div class="text-content">
+                    <p style="margin-bottom: 30px; font-size: 1.3rem; color: white;">
+                        Setiap cinta memiliki ceritanya sendiri, dan ini adalah cerita kita...
+                    </p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Hari Pertama Bertemu</div>
+                        <div class="timeline-content">
+                            Saat pertama kali mata kita bertemu, aku tahu ada sesuatu yang istimewa. Senyummu yang manis langsung mencuri hatiku dan membuatku ingin mengenalmu lebih dalam.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Momen Jadian</div>
+                        <div class="timeline-content">
+                            Hari yang tidak akan pernah aku lupakan. Ketika aku memberanikan diri untuk mengungkapkan perasaan, 
+                            dan kamu menjawab "iya" dengan berpikir bahwa aku bercanda padahal aku serius.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Kenangan Terindah</div>
+                        <div class="timeline-content">
+                            Setiap detik bersamamu adalah kenangan terindah. Dari tawa kita tiap hari, 
+                            hingga perasaan kangen yang terlepas ketika bertemu. Kamu membuat hidup ini penuh warna.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Hari Ini</div>
+                        <div class="timeline-content">
+                            Dan hari ini, di Girlfriend Day yang istimewa, aku ingin kamu tahu bahwa 
+                            cintaku padamu semakin hari semakin besar. Kamu bukan hanya pacarku, tapi juga sahabat terbaikku.
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="cta-button" onclick="showPage('memories')">
+                        Lihat Kenangan 📸
+                    </button>
+                    <button class="cta-button" onclick="showPage('messages')">
+                        Baca Pesan Cinta 💌
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memories Page -->
+    <div class="page" id="memories">
+        <div class="container">
+            <h2 class="page-title">Galeri Kenangan 📸</h2>
+            <div class="card">
+                <div class="text-content" style="margin-bottom: 30px;">
+                    <p>Setiap foto menyimpan seribu kata, dan setiap kenangan bersama adalah harta yang tak ternilai...</p>
+                </div>
+                <div class="gallery">
+                    <div class="memory-card" onclick="showMemoryDetail('first-date')">
+                        <div class="memory-image-container">
+                            <img src="images/kencan pertama ril.jpg" alt="Kencan Pertama" class="memory-image">
+                            <div class="memory-placeholder">🥰</div>
+                        </div>
+                        <div class="memory-title">Kencan Pertama</div>
+                        <div class="memory-desc">Gugup tapi bahagia, itulah yang aku rasakan saat kencan pertama kita...</div>
+                    </div>
+                    <div class="memory-card" onclick="showMemoryDetail('anniversary')">
+                        <div class="memory-image-container">
+                            <img src="images/anniv.jpg" alt="Anniversary" class="memory-image">
+                            <div class="memory-placeholder">💖</div>
+                        </div>
+                        <div class="memory-title">Anniversary</div>
+                        <div class="memory-desc">Merayakan cinta kita yang semakin dewasa dan indah...</div>
+                    </div>
+                    <div class="memory-card" onclick="showMemoryDetail('adventure')">
+                        <div class="memory-image-container">
+                            <img src="images/petualangan.jpg" alt="Petualangan Bersama" class="memory-image">
+                            <div class="memory-placeholder">🌍</div>
+                        </div>
+                        <div class="memory-title">Petualangan</div>
+                        <div class="memory-desc">Menjelajahi dunia bersama, hand in hand...</div>
+                    </div>
+                    <div class="memory-card" onclick="showMemoryDetail('simple-moments')">
+                        <div class="memory-image-container">
+                            <img src="images/momen sederhana.jpg" alt="Momen Sederhana" class="memory-image">
+                            <div class="memory-placeholder">☕</div>
+                        </div>
+                        <div class="memory-title">Momen Sederhana</div>
+                        <div class="memory-desc">Ngobrol sambil minum kopi, tertawa bersama, momen-momen kecil yang berharga...</div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="cta-button" onclick="showPage('about')">
+                        Kembali ke Cerita 💕
+                    </button>
+                    <button class="cta-button" onclick="showPage('messages')">
+                        Baca Pesan Cinta 💌
+                    </button>
+                    <button class="cta-button" onclick="showRandomMessage()">
+                        Pesan Kejutan ❤️
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages Page -->
+    <div class="page" id="messages">
+        <div class="container">
+            <h2 class="page-title">Pesan Cinta 💌</h2>
+            <div class="card">
+                <div class="text-content" style="margin-bottom: 30px;">
+                    <p>Kata-kata tidak cukup untuk mengungkapkan betapa berartinya kamu bagiku, tapi ini adalah usahaku...</p>
+                </div>
+                <div class="love-messages">
+                    <div class="message-card">
+                        <div class="message-text">
+                            Kamu adalah alasan aku bangun dengan senyuman setiap pagi. 
+                            Cintamu memberi makna pada setiap detik dalam hidupku.
+                        </div>
+                    </div>
+                    <div class="message-card">
+                        <div class="message-text">
+                            Bersamamu, aku menemukan versi terbaik dari diriku sendiri. 
+                            Kamu menginspirasi aku untuk menjadi orang yang lebih baik setiap hari.
+                        </div>
+                    </div>
+                    <div class="message-card">
+                        <div class="message-text">
+                            Dalam pelukan hangatmu, aku menemukan rumah. 
+                            Dalam senyummu, aku menemukan kebahagiaan sejati.
+                        </div>
+                    </div>
+                    <div class="message-card">
+                        <div class="message-text">
+                            Setiap "I love you" yang aku ucapkan adalah doa, 
+                            setiap pelukan adalah janji, dan setiap kasih sayangku adalah sumpah kesetiaan.
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="cta-button" onclick="showPage('about')">
+                        Kembali ke Cerita 💕
+                    </button>
+                    <button class="cta-button" onclick="showPage('memories')">
+                        Lihat Kenangan 📸
+                    </button>
+                    <button class="cta-button" onclick="showPage('home')">
+                        Kembali ke Home 🏠
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
