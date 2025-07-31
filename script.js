@@ -21,14 +21,10 @@ function showPage(pageId) {
 }
 
 function startLoveJourney() {
-    // Pindah ke halaman about
     showPage('about');
-
-    // Putar musik
     const audio = document.getElementById('loveSong');
-    audio.play().catch(error => {
-        console.log("Autoplay diblokir, klik lagi untuk memutar musik.", error);
-    });
+    audio.loop = true; // biar looping
+    audio.play().catch(err => console.log("Autoplay error:", err));
 }
 
 // Hearts animation - reduce frequency on mobile for better performance
